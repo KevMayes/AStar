@@ -346,12 +346,12 @@ do
 	MouseX = (GetPointerX()-GridOffsetX-(GridScaleX/2))/GridScaleX
 	MouseY = (GetPointerY()-GridOffsetY-(GridScaleY/2))/GridScaleY
 	If MouseX>-1 and MouseX<gridWidth and MouseY>-1 and MouseY<gridHeight
-		if GetRawMouseLeftPressed()=1  and (Grid[Mousex,MouseY].Blocked=0)
+		if GetRawKeyPressed(83)=1 and (Grid[Mousex,MouseY].Blocked=0)
 			Start.X = MouseX
 			Start.Y = MouseY
 			wait=10
 		endif
-		if GetRawMouseRightPressed()=1 and (Grid[Mousex,MouseY].Blocked=0)
+		if GetRawKeyPressed(69)=1 and (Grid[Mousex,MouseY].Blocked=0)
 			Dest.X = MouseX
 			Dest.Y = MouseY
 			wait=10
@@ -359,11 +359,11 @@ do
 //~		Print (MouseX)
 //~		Print (MouseY)
 		endif
-	if GetRawKeyState(32) =1
+	if GetRawMouseLeftState()=1
 			 Grid[MouseX,MouseY].Blocked = 1
 		    WAIT=20
 	endif
-	if GetRawKeyState(8) =1
+	if GetRawMouseRightState()=1
 		 Grid[MouseX,MouseY].Blocked = 0
 	WAIT=20
 	endif
